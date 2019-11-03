@@ -6,7 +6,7 @@
 
     <groupId>matak.springframework</groupId>
     <artifactId>mmp-testing</artifactId>
-    <version>1.2-SNAPSHOT</version>
+    <version>1.1-SNAPSHOT</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -39,25 +39,19 @@
                     <url>packagecloud+https://packagecloud.io/springframeworkmatak/snapshot</url>
                 </snapshotRepository>
             </distributionManagement>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
         </profile>
         <profile>
-            <id>packagecloud</id>
+            <id>nexus_distro</id>
             <distributionManagement>
-                <repository>
-                    <id>packagecloud.release</id>
-                    <url>packagecloud+https://packagecloud.io/springframeworkmatak/release</url>
-                </repository>
                 <snapshotRepository>
-                    <id>packagecloud.snapshot</id>
-                    <url>packagecloud+https://packagecloud.io/springframeworkmatak/snapshot</url>
+                    <id>nexus-snapshot</id>
+                    <url>http://localhost:8081/repository/nexus-snapshot/</url>
                 </snapshotRepository>
+                <repository>
+                    <id>nexus-release</id>
+                    <url>http://localhost:8081/repository/nexus-release/</url>
+                </repository>
             </distributionManagement>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
         </profile>
     </profiles>
 
